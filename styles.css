@@ -1,0 +1,67 @@
+body 
+{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.conhecimento-card {
+  background-color: #161513;
+  padding: 1.75rem;
+  border-radius: 0.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.conhecimento-card img {
+  position: relative;
+  z-index: 10;
+  max-height: 60px;
+  max-width: 70px;
+  object-fit: contain;
+}
+
+.conhecimento-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(270deg, #CF7500, #F0A500, #CF7500);
+  background-size: 600% 600%;
+  animation: borderAnimation 6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.conhecimento-card:hover::before {
+  opacity: 1;
+}
+
+.conhecimento-card:hover {
+  transform: scale(1.1);
+}
+
+.conhecimento-card.ativo::before {
+  opacity: 1;
+  animation: none;
+  background: linear-gradient(90deg, #CF7500, #F0A500, #CF7500);
+}
+
+@keyframes borderAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}

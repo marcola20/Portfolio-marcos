@@ -7,13 +7,8 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Ubuntu', sans-serif;
-    }
-  </style>
 </head>
 
 <body class="bg-[#161513] text-white">
@@ -27,7 +22,7 @@
     </div>
   </nav>
 
-  <main class="max-w-7xl mx-auto px-4">
+  <main>
     <section id="home" class="bg-[#161513] py-24 text-center px-4">
       <img src="assets/perfil.jpg" alt="Marcos Vinicius" class="w-64 h-64 rounded-full mx-auto mb-10 object-cover" />
 
@@ -54,42 +49,61 @@
       </div>
     </section>
 
+    <section id="conhecimentos" class="bg-[#222222] py-28 w-full">
+      <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">CONHECIMENTOS</h2>
+          <p id="texto-conhecimento" class="text-[#C5C5C5] text-sm md:text-base text-justify leading-[1.8] md:mt-2 transition-all duration-300 min-h-[260px]">
+            C# é uma linguagem moderna, tipada e orientada a objetos, amplamente utilizada no desenvolvimento de aplicações desktop e backends robustos.<br><br>
+            <strong>Minha experiência:</strong> Trabalho com C# desde o início da carreira, construindo sistemas empresariais sólidos, especialmente no setor financeiro. Uso intensivo de arquitetura em camadas, princípios SOLID e integração com APIs, sempre com foco em performance e manutenção. No projeto BitBeak, utilizei Entity Framework para persistência com foco em produtividade e manutenção limpa.<br><br>
+            <span class="text-sm text-gray-400">Passe o mouse sobre os cards para saber mais.</span>
+          </p>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4">
+          <div class="conhecimento-card ativo" data-tecnologia="csharp">
+            <img src="icons/csharp.png" alt="C#" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="netcore">
+            <img src="icons/netcore.png" alt=".NET Core" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="dotnet">
+            <img src="icons/dotnet.png" alt=".NET" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="figma">
+            <img src="icons/figma.png" alt="Figma" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="html">
+            <img src="icons/html.png" alt="HTML" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="css">
+            <img src="icons/css.png" alt="CSS" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="js">
+            <img src="icons/js.png" alt="JavaScript" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="tailwind">
+            <img src="icons/tailwind.png" alt="Tailwind" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="angular">
+            <img src="icons/angular.png" alt="Angular" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="react">
+            <img src="icons/react.png" alt="React" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="next">
+            <img src="icons/next.png" alt="Next.js" />
+          </div>
+          <div class="conhecimento-card" data-tecnologia="svelte">
+            <img src="icons/svelte.png" alt="Svelte" />
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-  const l1 = document.getElementById("linha1");
-  const l2 = document.getElementById("linha2");
-  const l3 = document.getElementById("linha3");
-
-  l1.classList.remove("hidden");
-  new Typed("#linha1", {
-    strings: ["Olá, sou Marcos Vinicius,"],
-    typeSpeed: 45,
-    showCursor: false,
-    onComplete: () => {
-      l2.classList.remove("hidden");
-      new Typed("#linha2", {
-        strings: [
-          `<span class='text-transparent bg-clip-text inline-block' style='background-image: linear-gradient(90deg, #CF7500, #F0A500);'>Eng. de Software</span> com experiência`
-        ],
-        typeSpeed: 40,
-        showCursor: false,
-        onComplete: () => {
-          l3.classList.remove("hidden");
-          new Typed("#linha3", {
-            strings: [
-              `em desenvolvimento <span class='text-transparent bg-clip-text inline-block' style='background-image: linear-gradient(90deg, #CF7500, #F0A500);'>full-stack!</span>`
-            ],
-            typeSpeed: 40,
-            showCursor: false
-          });
-        }
-      });
-    }
-  });
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
