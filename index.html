@@ -22,6 +22,49 @@
     </div>
   </nav>
 
+   <div class="fixed top-5 right-5 z-50 text-sm">
+    <div class="relative inline-block">
+      <button id="langToggle" class="bg-[#222222] text-white border border-white px-3 py-1 rounded flex items-center gap-2">
+        <img
+          id="currentFlag"
+          src="https://flagcdn.com/16x12/br.png"
+          srcset="https://flagcdn.com/32x24/br.png 2x,
+                  https://flagcdn.com/48x36/br.png 3x"
+          width="16"
+          height="12"
+          alt="BR"
+          class="inline"
+        />
+        <span id="currentLang">PT</span>
+      </button>
+
+      <div id="langMenu" class="hidden absolute right-0 mt-1 w-28 bg-[#222222] border border-white rounded shadow-md">
+        <div class="flex items-center gap-2 px-3 py-2 hover:bg-[#333] cursor-pointer" data-lang="pt">
+          <img
+            src="https://flagcdn.com/16x12/br.png"
+            srcset="https://flagcdn.com/32x24/br.png 2x,
+                    https://flagcdn.com/48x36/br.png 3x"
+            width="16"
+            height="12"
+            alt="BR"
+          />
+          <span>PT</span>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-2 hover:bg-[#333] cursor-pointer" data-lang="en">
+          <img
+            src="https://flagcdn.com/16x12/gb.png"
+            srcset="https://flagcdn.com/32x24/gb.png 2x,
+                    https://flagcdn.com/48x36/gb.png 3x"
+            width="16"
+            height="12"
+            alt="GB"
+          />
+          <span>EN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <main>
     <section id="home" class="bg-[#161513] py-24 text-center px-4">
       <img src="assets/perfil.jpg" alt="Marcos Vinicius" class="w-64 h-64 rounded-full mx-auto mb-10 object-cover" />
