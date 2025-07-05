@@ -138,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
  } 
 
-
   let ultimoCard = null;
   cards.forEach(card => {
     card.addEventListener("mouseenter", () => {
@@ -205,7 +204,7 @@ document.getElementById("nextProjeto").addEventListener("click", () => {
 const modal = document.getElementById("modalProjeto");
 const modalTitulo = document.getElementById("modalTitulo");
 const modalDescricao = document.getElementById("modalDescricao");
-const modalAno = document.getElementById("modalAno");
+const modalData = document.getElementById("modalData");
 const modalVideo = document.getElementById("modalVideo");
 const modalBotoes = document.getElementById("modalBotoes");
 
@@ -214,9 +213,10 @@ const projetos = [
     id: "bitbeak",
     titulo_pt: "BitBeak",
     titulo_en: "BitBeak",
-    ano: "2024",
-    descricao_pt: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
-    descricao_en: "EN - Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
+    data_pt: "25 de novembro de 2024",
+    data_en: "November 25, 2024",
+    descricao_pt: "BitBeak é uma ferramenta gamificada criada para apoiar o ensino de programação. Inspirado em plataformas como o Duolingo, o projeto busca tornar o aprendizado mais leve, acessível e progressivo, especialmente para iniciantes que enfrentam dificuldades nas primeiras disciplinas de programação.<br><br>A plataforma oferece um ambiente interativo onde os usuários podem se cadastrar, fazer login e iniciar uma trilha de aprendizagem dividida em níveis. Cada nível conta com quizzes interativos, desafios para jogar com amigos, e um diferencial visual: mangás educativos que explicam os conceitos de forma contextualizada e envolvente. O sistema de progresso é baseado em experiência e ranking, promovendo engajamento contínuo.<br><br>No backend, foi utilizado C# com .NET e Entity Framework, escolhidos pela robustez, tipagem forte e facilidade de manter regras de negócio complexas com segurança e performance. Já no frontend, o React foi adotado pela sua flexibilidade, componentização e excelente desempenho em interfaces ricas e dinâmicas.",
+    descricao_en: "BitBeak is a gamified tool designed to support programming education. Inspired by platforms like Duolingo, the project aims to make learning more accessible, progressive, and enjoyable—especially for beginners struggling with early programming subjects.<br><br>The platform provides an interactive environment where users can register, log in, and follow a structured learning path divided into levels. Each level features interactive quizzes, friend challenges, and a visual highlight: educational manga that explains programming concepts through engaging storytelling. Progress is based on experience points and ranking, encouraging ongoing engagement.<br><br>The backend was built using C# with .NET and Entity Framework, chosen for their robustness, strong typing, and ability to enforce complex business rules with reliability and performance. On the frontend, React was used for its flexibility, component-based architecture, and high performance in dynamic UIs.",
     video: "https://www.youtube.com/embed/EVYuPaON3WM",
     botoes: [
       { label_pt: "Repositório", label_en: "Repository", url: "https://github.com/orgs/BitBeak/repositories" },
@@ -230,7 +230,8 @@ const projetos = [
     id: "jmh",
     titulo_pt: "JMH Caçambas",
     titulo_en: "JMH Caçambas",
-    ano: "2025",
+    data_pt: "16 de junho de 2025",
+    data_en: "June 16, 2025",
     descricao_pt: "Site institucional para empresa de aluguel de caçambas.",
     descricao_en: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
@@ -243,7 +244,8 @@ const projetos = [
     id: "oasis",
     titulo_pt: "Oásis Studio Academy",
     titulo_en: "Oásis Studio Academy",
-    ano: "2024",
+    data_pt: "01 de julho de 2024",
+    data_en: "July 01, 2024",
     descricao_pt: "Site institucional para empresa de aluguel de caçambas.",
     descricao_en: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
@@ -256,7 +258,8 @@ const projetos = [
     id: "inspire",
     titulo_pt: "Inspire Tech Company",
     titulo_en: "Inspire Tech Company",
-    ano: "2024",
+    data_pt: "02 de setembro de 2024",
+    data_en: "September 02, 2024",
     descricao_pt: "Site institucional para empresa de aluguel de caçambas.",
     descricao_en: "Site institucional para empresa de aluguel de caçambas.",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
@@ -269,9 +272,10 @@ const projetos = [
     id: "clientesApi",
     titulo_pt: "ClientesAPI",
     titulo_en: "ClientsAPI",
-    ano: "2025",
-    descricao_pt: "API para cadasstro de clientes",
-    descricao_en: "API para cadasstro de clientes",
+    data_pt: "Em desenvolvimento, 2025",
+    data_en: "In development, 2025",
+    descricao_pt: "API para cadastro de clientes",
+    descricao_en: "API para cadastro de clientes",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     botoes: [
       { label_pt: "Repositório", label_en: "Repository", url: "https://github.com/Marcola20/ClientsAPI" }
@@ -290,8 +294,8 @@ document.querySelectorAll("#projetosWrapper > div").forEach(container => {
     if (!projeto) return;
 
     modalTitulo.textContent = idiomaAtual === "pt" ? projeto.titulo_pt : projeto.titulo_en;
-    modalDescricao.textContent = idiomaAtual === "pt" ? projeto.descricao_pt : projeto.descricao_en;
-    modalAno.textContent = projeto.ano;
+    modalDescricao.innerHTML = idiomaAtual === "pt" ? projeto.descricao_pt : projeto.descricao_en;
+    modalData.textContent = idiomaAtual === "pt" ? projeto.data_pt : projeto.data_en;
     modalVideo.src = projeto.video;
     modalBotoes.innerHTML = "";
 
