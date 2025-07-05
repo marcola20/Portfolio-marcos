@@ -179,3 +179,154 @@ document.addEventListener("DOMContentLoaded", function () {
   aplicarIdioma("pt");
   iniciarTyped("pt");
 });
+
+// script para o slider de projetos
+let slideIndex = 0;
+const wrapper = document.getElementById("projetosWrapper");
+const totalCards = 5;
+const cardsPorTela = 2;
+const maxIndex = totalCards - cardsPorTela;
+
+document.getElementById("prevProjeto").addEventListener("click", () => {
+  slideIndex = (slideIndex - 1 + (maxIndex + 1)) % (maxIndex + 1);
+  wrapper.style.transform = `translateX(-${slideIndex * 50}%)`;
+});
+
+document.getElementById("nextProjeto").addEventListener("click", () => {
+  slideIndex = (slideIndex + 1) % (maxIndex + 1);
+  wrapper.style.transform = `translateX(-${slideIndex * 50}%)`;
+});
+
+// script para o modal de projetos
+const modal = document.getElementById("modalProjeto");
+const modalTitulo = document.getElementById("modalTitulo");
+const modalDescricao = document.getElementById("modalDescricao");
+const modalAno = document.getElementById("modalAno");
+const modalVideo = document.getElementById("modalVideo");
+const modalBotoes = document.getElementById("modalBotoes");
+
+const projetos = [
+  {
+    id: "bitbeak",
+    titulo_pt: "BitBeak",
+    titulo_en: "BitBeak",
+    ano: "2024",
+    descricao_pt: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
+    descricao_en: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
+    video: "https://www.youtube.com/watch?v=EVYuPaON3WM",
+    botoes: [
+      { label: "Repositório", url: "https://github.com/orgs/BitBeak/repositories" },
+      { label: "Mangás", url: "https://bitbeak.com/mangas" },
+      { label: "Figma", url: "https://www.figma.com/proto/YJ1eG3DorMAs232tWcoe26/BitBeak?node-id=768-65&p=f&t=GUEUXawIudNkuFAy-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" },
+      { label: "Post LinkedIn", url: "https://www.linkedin.com/posts/marcosviniciussa_h%C3%A1-cerca-de-um-m%C3%AAs-realizei-a-%C3%BAltima-apresenta%C3%A7%C3%A3o-activity-7275892876104880128-HLgd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC-148oBRSguSUWgqHnMYqdzwLz5oxvMhnQ" },
+      { label: "Artigo", tooltip: "O artigo do projeto está em fase de revisão" }
+    ]
+  },
+  {
+    id: "jmh",
+    titulo_pt: "JMH Caçambas",
+    titulo_en: "JMH Caçambas",
+    ano: "2025",
+    descricao_pt: "Site institucional para empresa de aluguel de caçambas.",
+    descricao_en: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
+    video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+    botoes: [
+      { label: "Site", url: "https://jmh.com.br" },
+      { label: "Figma", url: "https://figma.com" }
+    ]
+  },
+  {
+    id: "oasis",
+    titulo_pt: "Oásis Studio Academy",
+    titulo_en: "Oásis Studio Academy",
+    ano: "2024",
+    descricao_pt: "Site institucional para empresa de aluguel de caçambas.",
+    descricao_en: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
+    video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+    botoes: [
+      { label: "Site", url: "https://jmh.com.br" },
+      { label: "Figma", url: "https://figma.com" }
+    ]
+  },
+  {
+    id: "inspire",
+    titulo_pt: "Inspire Tech Company",
+    titulo_en: "Inspire Tech Company",
+    ano: "2024",
+    descricao_pt: "Site institucional para empresa de aluguel de caçambas.",
+    descricao_en: "Site institucional para empresa de aluguel de caçambas.",
+    video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+    botoes: [
+      { label: "Repositório", url: "https://github.com/Inspire-Tech-Company/inspire-tech" },
+      { label: "Figma", url: "https://figma.com" }
+    ]
+  },
+   {
+    id: "clientesApi",
+    titulo_pt: "ClientesAPI",
+    titulo_en: "ClientsAPI",
+    ano: "2025",
+    descricao_pt: "API para cadasstro de clientes",
+    descricao_en: "API para cadasstro de clientes",
+    video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+    botoes: [
+      { label: "Repositório", url: "https://github.com/Marcola20/ClientsAPI" }
+    ]
+  }
+];
+
+document.querySelectorAll("#projetosWrapper > div").forEach(container => {
+  const card = container.querySelector(".group");
+  if (!card) return;
+
+  card.addEventListener("click", () => {
+    const projetoId = container.dataset.id;
+    const projeto = projetos.find(p => p.id === projetoId);
+
+    if (!projeto) return;
+
+    modalTitulo.textContent = idiomaAtual === "pt" ? projeto.titulo_pt : projeto.titulo_en;
+    modalDescricao.textContent = idiomaAtual === "pt" ? projeto.descricao_pt : projeto.descricao_en;
+    modalAno.textContent = projeto.ano;
+    modalVideo.src = projeto.video;
+    modalBotoes.innerHTML = "";
+
+    projeto.botoes.forEach(botao => {
+      const btn = document.createElement("a");
+      btn.className = "bg-[#F0A500] text-black px-4 py-2 rounded font-medium text-sm hover:bg-[#F0B433] transition";
+      btn.textContent = botao.label;
+
+      if (botao.url) {
+        btn.href = botao.url;
+        btn.target = "_blank";
+      } else if (botao.tooltip) {
+        btn.classList.add("cursor-not-allowed", "opacity-60", "relative");
+        btn.setAttribute("title", botao.tooltip);
+      }
+
+      modalBotoes.appendChild(btn);
+    });
+
+    modal.classList.remove("hidden");
+  });
+});
+
+document.getElementById("fecharModal").addEventListener("click", () => {
+  modal.classList.add("hidden");
+  modalVideo.src = "";
+});
+
+modal.addEventListener("click", e => {
+  if (e.target === modal) {
+    modal.classList.add("hidden");
+    modalVideo.src = "";
+  }
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    modal.classList.add("hidden");
+    modalVideo.src = "";
+  }
+});
+
