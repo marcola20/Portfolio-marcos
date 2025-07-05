@@ -1,3 +1,5 @@
+let idiomaAtual = "pt"; 
+
 document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll(".conhecimento-card");
   const texto = document.getElementById("texto-conhecimento");
@@ -21,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
       conhecimentosTitulo: "CONHECIMENTOS",
       heroTexto: `Atuo como desenvolvedor full-stack com foco principal em backend C# e integração de sistemas. No frontend, trabalho com interfaces modernas em WinForms usando DevExpress, além de Angular, React e JavaScript para aplicações web. Tenho experiência em toda a jornada do projeto — da arquitetura à entrega — sempre buscando criar soluções robustas, funcionais e com boa usabilidade.`,
       heroBotaoContato: "Entre em Contato",
-      heroBotaoCV: "Download CV"
+      heroBotaoCV: "Download CV",
+      projetosTitulo: "PROJETOS"
     },
     en: {
       csharp: `C# is a modern, statically-typed, object-oriented language widely used in building robust desktop and backend applications.<br><br><strong>My experience:</strong> I've worked with C# since the beginning of my career, building solid enterprise systems — especially in the financial sector — using layered architecture, SOLID principles, and API integrations. In the BitBeak project, I used Entity Framework for clean and efficient persistence.`,
@@ -41,11 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
       conhecimentosTitulo: "SKILLS",
       heroTexto: `I'm a full-stack developer focused on backend with C# and system integration. On the frontend, I work with modern WinForms (DevExpress), Angular, React and JavaScript. I have experience across the entire project lifecycle — from architecture to delivery — always aiming for robust, functional and user-friendly solutions.`,
       heroBotaoContato: "Contact Me",
-      heroBotaoCV: "Download CV"
+      heroBotaoCV: "Download CV",
+      projetosTitulo: "PROJECTS"
     }
   };
-
-  let idiomaAtual = "pt";
 
   function aplicarIdioma(lang) {
     idiomaAtual = lang;
@@ -58,6 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const titulo = document.querySelector("#conhecimentos h2");
     if (titulo) titulo.textContent = textos[lang].conhecimentosTitulo;
 
+    const tituloProjetos = document.querySelector("#projetos h2");
+    if (tituloProjetos) tituloProjetos.textContent = textos[lang].projetosTitulo;
+
     document.querySelector("#home p").innerHTML = textos[lang].heroTexto;
 
     document.querySelectorAll("#home a")[0].textContent = textos[lang].heroBotaoContato;
@@ -67,10 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const key = ativo?.dataset?.tecnologia || "html";
     texto.innerHTML = textos[lang][key] + `<br><br><span class="text-sm text-gray-400">${textos[lang].legenda}</span>`;
 
-    document.getElementById("currentFlag").src = lang === "pt"
-      ? "https://flagcdn.com/16x12/br.png"
-      : "https://flagcdn.com/16x12/gb.png";
-
+    document.getElementById("currentFlag").src = lang === "pt" ? "https://flagcdn.com/16x12/br.png" : "https://flagcdn.com/16x12/gb.png";
     document.getElementById("currentLang").textContent = lang.toUpperCase();
   }
 
@@ -165,6 +167,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const lang = item.dataset.lang;
         aplicarIdioma(lang);
         iniciarTyped(lang);
+
+        langMenu.classList.add("hidden");
       });
     });
   }
@@ -212,14 +216,14 @@ const projetos = [
     titulo_en: "BitBeak",
     ano: "2024",
     descricao_pt: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
-    descricao_en: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
-    video: "https://www.youtube.com/watch?v=EVYuPaON3WM",
+    descricao_en: "EN - Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
+    video: "https://www.youtube.com/embed/EVYuPaON3WM",
     botoes: [
-      { label: "Repositório", url: "https://github.com/orgs/BitBeak/repositories" },
-      { label: "Mangás", url: "https://bitbeak.com/mangas" },
-      { label: "Figma", url: "https://www.figma.com/proto/YJ1eG3DorMAs232tWcoe26/BitBeak?node-id=768-65&p=f&t=GUEUXawIudNkuFAy-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" },
-      { label: "Post LinkedIn", url: "https://www.linkedin.com/posts/marcosviniciussa_h%C3%A1-cerca-de-um-m%C3%AAs-realizei-a-%C3%BAltima-apresenta%C3%A7%C3%A3o-activity-7275892876104880128-HLgd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC-148oBRSguSUWgqHnMYqdzwLz5oxvMhnQ" },
-      { label: "Artigo", tooltip: "O artigo do projeto está em fase de revisão" }
+      { label_pt: "Repositório", label_en: "Repository", url: "https://github.com/orgs/BitBeak/repositories" },
+      { label_pt: "Mangás", label_en: "Mangas", url: "https://bitbeak.com/mangas" },
+      { label_pt: "Figma", label_en: "Figma", url: "https://www.figma.com/proto/YJ1eG3DorMAs232tWcoe26/BitBeak?node-id=768-65&p=f&t=GUEUXawIudNkuFAy-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" },
+      { label_pt: "Post LinkedIn", label_en: "LinkedIn Post", url: "https://www.linkedin.com/posts/marcosviniciussa_h%C3%A1-cerca-de-um-m%C3%AAs-realizei-a-%C3%BAltima-apresenta%C3%A7%C3%A3o-activity-7275892876104880128-HLgd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC-148oBRSguSUWgqHnMYqdzwLz5oxvMhnQ" },
+      { label_pt: "Artigo", label_en: "Paper", tooltip_pt: "O artigo do projeto está em fase de revisão", tooltip_en: "The paper is currently under review" }
     ]
   },
   {
@@ -231,8 +235,8 @@ const projetos = [
     descricao_en: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     botoes: [
-      { label: "Site", url: "https://jmh.com.br" },
-      { label: "Figma", url: "https://figma.com" }
+      { label_pt: "Site", label_en: "Site", url: "https://jmh.com.br" },
+      { label_pt: "Figma", label_en: "Figma", url: "https://figma.com" }
     ]
   },
   {
@@ -245,7 +249,7 @@ const projetos = [
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     botoes: [
       { label: "Site", url: "https://jmh.com.br" },
-      { label: "Figma", url: "https://figma.com" }
+      { label_pt: "Figma", label_en: "Figma", url: "https://figma.com" }
     ]
   },
   {
@@ -257,8 +261,8 @@ const projetos = [
     descricao_en: "Site institucional para empresa de aluguel de caçambas.",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     botoes: [
-      { label: "Repositório", url: "https://github.com/Inspire-Tech-Company/inspire-tech" },
-      { label: "Figma", url: "https://figma.com" }
+      { label_pt: "Repositório", label_en: "Repository", url: "https://github.com/Inspire-Tech-Company/inspire-tech" },
+      { label_pt: "Figma", label_en: "Figma", url: "https://figma.com" }
     ]
   },
    {
@@ -270,7 +274,7 @@ const projetos = [
     descricao_en: "API para cadasstro de clientes",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     botoes: [
-      { label: "Repositório", url: "https://github.com/Marcola20/ClientsAPI" }
+      { label_pt: "Repositório", label_en: "Repository", url: "https://github.com/Marcola20/ClientsAPI" }
     ]
   }
 ];
@@ -295,13 +299,14 @@ document.querySelectorAll("#projetosWrapper > div").forEach(container => {
       const btn = document.createElement("a");
       btn.className = "bg-[#F0A500] text-black px-4 py-2 rounded font-medium text-sm hover:bg-[#F0B433] transition";
       btn.textContent = botao.label;
+      btn.textContent = idiomaAtual === "pt" ? botao.label_pt : botao.label_en;
 
       if (botao.url) {
         btn.href = botao.url;
         btn.target = "_blank";
-      } else if (botao.tooltip) {
+      }else if (botao.tooltip_pt || botao.tooltip_en) {
         btn.classList.add("cursor-not-allowed", "opacity-60", "relative");
-        btn.setAttribute("title", botao.tooltip);
+        btn.setAttribute("title", idiomaAtual === "pt" ? botao.tooltip_pt : botao.tooltip_en);
       }
 
       modalBotoes.appendChild(btn);
