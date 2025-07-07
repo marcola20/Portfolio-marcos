@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // script para o slider de projetos
 let slideIndex = 0;
 const wrapper = document.getElementById("projetosWrapper");
-const totalCards = 5;
+const totalCards = 4;
 const cardsPorTela = 2;
 const maxIndex = totalCards - cardsPorTela;
 
@@ -232,26 +232,26 @@ const projetos = [
     titulo_en: "JMH Caçambas",
     data_pt: "16 de junho de 2025",
     data_en: "June 16, 2025",
-    descricao_pt: "Site institucional para empresa de aluguel de caçambas.",
-    descricao_en: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
+    descricao_pt: "Site institucional desenvolvido para a empresa de aluguel de caçambas JMH, com o objetivo de modernizar sua presença digital. Participei de todo o processo — desde a pesquisa e prototipação até o desenvolvimento final. <br><br>O site foi construído com HTML, Tailwind CSS e JavaScript, garantindo um visual responsivo e moderno. Um dos destaques é a integração de um modelo 3D personalizado criado no Blender, trazendo um diferencial visual à apresentação dos serviços.",
+    descricao_en: "Institutional website developed for JMH, a dumpster rental company, aiming to modernize its digital presence. I was involved in the entire process — from research and prototyping to final development. <br><br>The site was built using HTML, Tailwind CSS, and JavaScript, ensuring a modern and responsive interface. A key highlight is the integration of a custom 3D model created in Blender, adding a unique visual element to the service presentation.",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     botoes: [
-      { label_pt: "Site", label_en: "Site", url: "https://jmh.com.br" },
-      { label_pt: "Figma", label_en: "Figma", url: "https://figma.com" }
+      { label_pt: "Site", label_en: "Site", url: "https://www.jmhengenharia.com.br/" },
+      { label_pt: "Figma", label_en: "Figma", url: "https://www.figma.com/proto/yoB88blJrnHpzuB2fGO9h0/JMH-Ca%C3%A7ambas?node-id=1-4&t=cU6ujcqQ4jieejy4-1&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A4" }
     ]
   },
   {
     id: "oasis",
-    titulo_pt: "Oásis Studio Academy",
-    titulo_en: "Oásis Studio Academy",
+    titulo_pt: "Oásis Beauty Academy",
+    titulo_en: "Oásis Beauty Academy",
     data_pt: "01 de julho de 2024",
     data_en: "July 01, 2024",
-    descricao_pt: "Site institucional para empresa de aluguel de caçambas.",
-    descricao_en: "Ferramenta gamificada de ensino de programação desenvolvida como TCC.",
+    descricao_pt: "Participei de toda a criação do site institucional do Oásis Beauty Academy. Desde a pesquisa inicial e conversas com a nova proprietária, o projeto foi pensado para dar uma nova identidade ao estúdio, que passava por um processo de transição de gestão. A proposta foi construir algo único, que representasse essa nova fase da empresa.<br><br>Um dos diferenciais do site é a seção “Dia da Noiva”, onde as noivas podem montar sua experiência personalizada, escolhendo serviços como maquiagem, cabelo, estética, nail art e lash design — tudo em um só lugar.<br><br>O site foi desenvolvido com Svelte, uma tecnologia moderna e performática que oferece excelente responsividade e simplicidade no desenvolvimento, ideal para um projeto leve e dinâmico. Também utilizei JavaScript e CSS puro para complementar interações e estilo.",
+    descricao_en: "I was involved in the full development of the institutional website for Oásis Beauty Academy. From early research and client conversations to the final delivery, the project was designed to give the studio a fresh identity, reflecting its transition to new ownership and a unique vision for the future.<br><br>One of the standout features is the “Bride’s Day” section, where brides can personalize their special day by selecting services like makeup, hair, aesthetics, nail art, and lash design — all in one place.<br><br>The site was built using Svelte, a modern and performant framework that provides excellent responsiveness and a smooth development experience — perfect for a lightweight, dynamic site. JavaScript and plain CSS were also used to enhance interactions and styling.",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     botoes: [
-      { label: "Site", url: "https://jmh.com.br" },
-      { label_pt: "Figma", label_en: "Figma", url: "https://figma.com" }
+      { label_pt: "Site", label_en: "Site", url: "https://oasisbeautyacademy.com/" },
+      { label_pt: "Figma", label_en: "Figma", url: "https://www.figma.com/proto/aRhJufXs2lF4Jp1YrUUP3O/Oasis-Studio?node-id=26-45545&p=f&t=o3MrnQojOrPQvQbq-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=26%3A45545" }
     ]
   },
   {
@@ -260,25 +260,13 @@ const projetos = [
     titulo_en: "Inspire Tech Company",
     data_pt: "02 de setembro de 2024",
     data_en: "September 02, 2024",
-    descricao_pt: "Site institucional para empresa de aluguel de caçambas.",
-    descricao_en: "Site institucional para empresa de aluguel de caçambas.",
+    descricao_pt: "Site institucional criado para a Inspire Tech Company, uma empresa focada em marketing e publicidade. Durante minha atuação na equipe, fui responsável por desenvolver todo o site do zero, incluindo layout, identidade visual e estrutura funcional.<br><br>O objetivo era transmitir inovação, confiança e profissionalismo para potenciais clientes. Para isso, utilizei uma paleta escura contrastando com tons vibrantes de roxo, reforçando modernidade e criatividade. A página principal foi pensada para causar impacto logo de início, com mensagens diretas, destaques de serviços e cases de sucesso.<br><br>O desenvolvimento foi feito com HTML, CSS e TypeScript, garantindo código limpo, organizado e performático. Cada seção foi desenhada para entregar clareza na navegação e destacar os diferenciais da empresa de forma objetiva e visualmente marcante.",
+    descricao_en: "Institutional website created for Inspire Tech Company, a business focused on marketing and advertising. While working with the team, I was responsible for developing the entire site from scratch — including layout, visual identity, and functional structure.<br><br>The goal was to convey innovation, trust, and professionalism to potential clients. A dark color palette combined with vibrant purple accents was used to reflect modernity and creativity. The homepage was designed to make an immediate impact, with direct messages, highlighted services, and success stories.<br><br>The development was done using HTML, CSS, and TypeScript, ensuring clean, organized, and high-performance code. Each section was built to deliver intuitive navigation and clearly showcase the company’s strengths in a visually compelling way.",
     video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
     botoes: [
       { label_pt: "Repositório", label_en: "Repository", url: "https://github.com/Inspire-Tech-Company/inspire-tech" },
-      { label_pt: "Figma", label_en: "Figma", url: "https://figma.com" }
-    ]
-  },
-   {
-    id: "clientesApi",
-    titulo_pt: "ClientesAPI",
-    titulo_en: "ClientsAPI",
-    data_pt: "Em desenvolvimento, 2025",
-    data_en: "In development, 2025",
-    descricao_pt: "API para cadastro de clientes",
-    descricao_en: "API para cadastro de clientes",
-    video: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
-    botoes: [
-      { label_pt: "Repositório", label_en: "Repository", url: "https://github.com/Marcola20/ClientsAPI" }
+      { label_pt: "Figma", label_en: "Figma", url: "https://www.figma.com/proto/B6LStoR4BA6HSCLwl3VcQV/Inspire-Tech?node-id=1-2&t=r4nXK6dE3SUr5QyT-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=149%3A4&show-proto-sidebar=1" },
+      { label_pt: "Site", label_en: "Site", tooltip_pt: "O site atualmente está fora do ar.", tooltip_en: "The website is currently offline." }
     ]
   }
 ];
