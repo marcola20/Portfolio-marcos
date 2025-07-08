@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       next: `Next.js é um framework para React com renderização híbrida, performance otimizada e excelente suporte a SEO.<br><br><strong>Quando uso:</strong> Para aplicações com foco em tempo de carregamento e visibilidade orgânica, aproveitando recursos como SSR e rotas dinâmicas.`,
       svelte: `Svelte é um framework reativo que compila o código para JavaScript puro, sem virtual DOM, oferecendo desempenho excepcional.<br><br><strong>Meu interesse:</strong> Tenho estudado Svelte por sua simplicidade e leveza, sendo promissor para projetos modernos e responsivos.`,
       legenda: `Passe o mouse sobre os cards para saber mais.`,
-      nav: ["Home", "Conhecimentos", "Projetos", "Experiências"],
+      nav: ["Home", "Conhecimentos", "Projetos", "Experiência"],
       conhecimentosTitulo: "CONHECIMENTOS",
       heroTexto: `Atuo como desenvolvedor full-stack com foco principal em backend C# e integração de sistemas. No frontend, trabalho com interfaces modernas em WinForms usando DevExpress, além de Angular, React e JavaScript para aplicações web. Tenho experiência em toda a jornada do projeto — da arquitetura à entrega — sempre buscando criar soluções robustas, funcionais e com boa usabilidade.`,
       heroBotaoContato: "Entre em Contato",
@@ -74,6 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("currentFlag").src = lang === "pt" ? "https://flagcdn.com/16x12/br.png" : "https://flagcdn.com/16x12/gb.png";
     document.getElementById("currentLang").textContent = lang.toUpperCase();
+
+    const tituloExp = document.getElementById("experienciasTitulo");
+    if (tituloExp) tituloExp.textContent = lang === "pt" ? "EXPERIÊNCIA" : "EXPERIENCE";
+    renderizarExperiencias(lang);
+
+    traduzirFooter(lang);
   }
 
   let typed1 = null;
@@ -327,3 +333,68 @@ document.addEventListener("keydown", e => {
   }
 });
 
+const experiencias = [
+  {
+    id: "magware",
+    empresa: "MAG.WARE",
+    icon: "icons/magware_logo.png",
+    cargo_pt: "Engenheiro de Software na ",
+    cargo_en: "Software Engineer at ",
+    data_pt: "Dez 2024 — Atualmente",
+    data_en: "Dec 2024 — Present",
+    descricao_pt: `Atuo como engenheiro de software especializado em aplicações desktop desenvolvidas com C#, WinForms e DevExpress, criando soluções robustas, escaláveis e de alta performance voltadas ao setor financeiro. Sou responsável por projetar arquiteturas eficientes, modernizar sistemas legados, otimizar fluxos internos e integrar serviços via WebServices (REST/SOAP). Também colaboro na criação de interfaces ricas com componentes personalizados, sempre aplicando boas práticas de codificação e metodologias ágeis para garantir qualidade, manutenção e evolução contínua dos projetos.`,
+    descricao_en: `I work as a software engineer specialized in desktop applications using C#, WinForms, and DevExpress, building robust, scalable, and high-performance solutions for the financial sector. I’m responsible for designing efficient architectures, modernizing legacy systems, optimizing internal workflows, and integrating services through WebServices (REST/SOAP). I also contribute to the development of rich interfaces with custom components, applying clean code practices and agile methodologies to ensure quality, maintainability, and continuous improvement.`
+  },
+  {
+    id: "inspire",
+    empresa: "Inspire Tech Company",
+    icon: "icons/inspire_logo.png",
+    cargo_pt: "Engenheiro de Software na ",
+    cargo_en: "Software Engineer at ",
+    data_pt: "Jun 2024 — Dez 2024",
+    data_en: "Jun 2024 — Dec 2024",
+    descricao_pt: `Atuei como desenvolvedor full stack em todo o ciclo de vida dos projetos, desde a análise inicial e definição de requisitos até o design, desenvolvimento e entrega final. Trabalhei com tecnologias modernas de front-end e back-end, contribuindo na construção de sistemas web responsivos, eficientes e alinhados aos objetivos estratégicos da empresa. Tive participação ativa na criação de interfaces intuitivas, integração com APIs e aplicação de boas práticas de desenvolvimento para garantir escalabilidade e manutenibilidade dos produtos.`,
+    descricao_en: `Worked as a full-stack developer throughout the entire project lifecycle — from initial analysis and requirement gathering to design, development, and final delivery. Used modern front-end and back-end technologies to build responsive and efficient web systems aligned with the company's strategic goals. Actively contributed to creating intuitive interfaces, integrating APIs, and applying best development practices to ensure scalability and maintainability.`
+  },
+  {
+    id: "spro",
+    empresa: "Spro IT Solutions",
+    icon: "icons/spro_logo.png",
+    cargo_pt: "Desenvolvedor Back-End na ",
+    cargo_en: "Back-End Developer at ",
+    data_pt: "Abr 2022 — Mai 2024",
+    data_en: "Apr 2022 — May 2024",
+    descricao_pt: `Atuei no desenvolvimento de APIs robustas em C# .NET integradas a bancos de dados PostgreSQL para um sistema de IoT voltado à telemetria agrícola. Participei da implantação de soluções em ambiente Docker, garantindo escalabilidade e portabilidade. Também fui responsável pela integração dos dados com plataformas web (React + Next.js) e aplicações mobile (React Native), promovendo a visualização eficiente das informações em tempo real.`,
+    descricao_en: `Worked on the development of robust APIs in C# .NET integrated with PostgreSQL databases for an IoT system focused on agricultural telemetry. Contributed to deploying scalable and portable solutions using Docker. Also handled data integration with web platforms (React + Next.js) and mobile applications (React Native), enabling real-time and efficient data visualization.`
+  }
+];
+
+function renderizarExperiencias(lang) {
+  const wrapper = document.getElementById("experienciasWrapper");
+  if (!wrapper) return;
+
+  wrapper.innerHTML = experiencias.map(exp => `
+    <div class="flex flex-col md:flex-row gap-6 items-start">
+      <img src="${exp.icon}" alt="${exp.empresa}" class="w-12 h-12 object-contain mt-1" />
+      <div class="flex-1">
+        <div class="flex justify-between flex-wrap items-center gap-x-2">
+          <h3 class="text-3xl font-bold text-white">
+            ${lang === "pt" ? exp.cargo_pt : exp.cargo_en}
+            <span class="bg-gradient-to-r from-[#F0A500] to-[#CF7500] text-transparent bg-clip-text">
+              ${exp.empresa}
+            </span>
+          </h3>
+          <p class="text-md text-[#8491A0]">${lang === "pt" ? exp.data_pt : exp.data_en}</p>
+        </div>
+        <p class="text-[#C5C5C5] mt-3 text-sm leading-relaxed text-justify text-justify">${lang === "pt" ? exp.descricao_pt : exp.descricao_en}</p>
+      </div>
+    </div>
+  `).join("");
+}
+
+ function traduzirFooter(lang) {
+  const contatoTitulo = document.getElementById("contatoTitulo");
+  if (contatoTitulo) {
+    contatoTitulo.textContent = lang === "pt" ? "ENTRE EM CONTATO" : "GET IN TOUCH";
+  }
+}
