@@ -351,8 +351,8 @@ const experiencias = [
     icon: "icons/inspire_logo.png",
     cargo_pt: "Engenheiro de Software na ",
     cargo_en: "Software Engineer at ",
-    data_pt: "Jun 2024 — Dez 2024",
-    data_en: "Jun 2024 — Dec 2024",
+    data_pt: "Abr 2024 — Dez 2024",
+    data_en: "Apr 2024 — Dec 2024",
     descricao_pt: `Atuei como desenvolvedor full stack em todo o ciclo de vida dos projetos, desde a análise inicial e definição de requisitos até o design, desenvolvimento e entrega final. Trabalhei com tecnologias modernas de front-end e back-end, contribuindo na construção de sistemas web responsivos, eficientes e alinhados aos objetivos estratégicos da empresa. Tive participação ativa na criação de interfaces intuitivas, integração com APIs e aplicação de boas práticas de desenvolvimento para garantir escalabilidade e manutenibilidade dos produtos.`,
     descricao_en: `Worked as a full-stack developer throughout the entire project lifecycle — from initial analysis and requirement gathering to design, development, and final delivery. Used modern front-end and back-end technologies to build responsive and efficient web systems aligned with the company's strategic goals. Actively contributed to creating intuitive interfaces, integrating APIs, and applying best development practices to ensure scalability and maintainability.`
   },
@@ -362,8 +362,8 @@ const experiencias = [
     icon: "icons/spro_logo.png",
     cargo_pt: "Desenvolvedor Back-End na ",
     cargo_en: "Back-End Developer at ",
-    data_pt: "Abr 2022 — Mai 2024",
-    data_en: "Apr 2022 — May 2024",
+    data_pt: "Jul 2022 — Abr 2024",
+    data_en: "Jul 2022 — Apr 2024",
     descricao_pt: `Atuei no desenvolvimento de APIs robustas em C# .NET integradas a bancos de dados PostgreSQL para um sistema de IoT voltado à telemetria agrícola. Participei da implantação de soluções em ambiente Docker, garantindo escalabilidade e portabilidade. Também fui responsável pela integração dos dados com plataformas web (React + Next.js) e aplicações mobile (React Native), promovendo a visualização eficiente das informações em tempo real.`,
     descricao_en: `Worked on the development of robust APIs in C# .NET integrated with PostgreSQL databases for an IoT system focused on agricultural telemetry. Contributed to deploying scalable and portable solutions using Docker. Also handled data integration with web platforms (React + Next.js) and mobile applications (React Native), enabling real-time and efficient data visualization.`
   }
