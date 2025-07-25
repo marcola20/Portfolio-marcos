@@ -190,21 +190,47 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // script para o slider de projetos
-let slideIndex = 0;
 const wrapper = document.getElementById("projetosWrapper");
-const totalCards = 4;
-const cardsPorTela = 2;
-const maxIndex = totalCards - cardsPorTela;
+const cards = wrapper.querySelectorAll("div[data-id]");
+const isMobile = window.innerWidth < 768;
+const cardsPorTela = isMobile ? 1 : 2;
+const cardWidthPercent = 100 / cardsPorTela;
 
-document.getElementById("prevProjeto").addEventListener("click", () => {
-  slideIndex = (slideIndex - 1 + (maxIndex + 1)) % (maxIndex + 1);
-  wrapper.style.transform = `translateX(-${slideIndex * 50}%)`;
-});
+let slideIndex = cardsPorTela; 
+
+for (let i = 0; i < cardsPorTela; i++) {
+  const cloneInicio = cards[i].cloneNode(true);
+  const cloneFim = cards[cards.length - 1 - i].cloneNode(true);
+  wrapper.appendChild(cloneInicio);
+  wrapper.insertBefore(cloneFim, wrapper.firstChild);
+}
+
+const todosCards = wrapper.querySelectorAll("div[data-id]");
+const totalCards = todosCards.length;
+
+wrapper.style.transform = `translateX(-${slideIndex * cardWidthPercent}%)`;
+
+
+function updateSlider(animate = true) {
+  if (!animate) wrapper.style.transition = "none";
+  else wrapper.style.transition = "transform 0.5s ease-in-out";
+
+  wrapper.style.transform = `translateX(-${slideIndex * cardWidthPercent}%)`;
+}
 
 document.getElementById("nextProjeto").addEventListener("click", () => {
-  slideIndex = (slideIndex + 1) % (maxIndex + 1);
-  wrapper.style.transform = `translateX(-${slideIndex * 50}%)`;
+  slideIndex++;
+  updateSlider();
+
+  if (slideIndex >= totalCards - cardsPorTela) {
+    setTimeout(() => {
+      slideIndex = cardsPorTela;
+      updateSlider(false);
+    }, 500); 
+  }
 });
+
+
 
 // script para o modal de projetos
 const modal = document.getElementById("modalProjeto");
