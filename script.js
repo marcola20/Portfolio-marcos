@@ -400,19 +400,19 @@ function renderizarExperiencias(lang) {
   if (!wrapper) return;
 
   wrapper.innerHTML = experiencias.map(exp => `
-    <div class="flex flex-col md:flex-row gap-6 items-start">
-      <img src="${exp.icon}" alt="${exp.empresa}" class="w-12 h-12 object-contain mt-1" />
+    <div class="flex flex-row md:flex-row gap-4 sm:gap-6 items-start">
+      <img src="${exp.icon}" alt="${exp.empresa}" class="w-6 h-6 sm:w-12 sm:h-12 object-contain mt-1"/>
       <div class="flex-1">
         <div class="flex justify-between flex-wrap items-center gap-x-2">
-          <h3 class="text-3xl font-bold text-white">
+          <h3 class="text-base sm:text-2xl font-bold text-white">
             ${lang === "pt" ? exp.cargo_pt : exp.cargo_en}
             <span class="bg-gradient-to-r from-[#F0A500] to-[#CF7500] text-transparent bg-clip-text">
               ${exp.empresa}
             </span>
           </h3>
-          <p class="text-md text-[#8491A0]">${lang === "pt" ? exp.data_pt : exp.data_en}</p>
+          <p class="text-xs sm:text-sm text-[#8491A0]">${lang === "pt" ? exp.data_pt : exp.data_en}</p>
         </div>
-        <p class="text-[#C5C5C5] mt-3 text-sm leading-relaxed text-justify text-justify">${lang === "pt" ? exp.descricao_pt : exp.descricao_en}</p>
+        <p class="text-[#C5C5C5] mt-3 text-xs sm:text-sm leading-relaxed text-justify">${lang === "pt" ? exp.descricao_pt : exp.descricao_en}</p>
       </div>
     </div>
   `).join("");
