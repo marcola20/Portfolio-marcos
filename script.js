@@ -252,7 +252,7 @@ const projetos = [
     video: "https://www.youtube.com/embed/EVYuPaON3WM",
     botoes: [
       { label_pt: "Repositório", label_en: "Repository", url: "https://github.com/orgs/BitBeak/repositories" },
-      { label_pt: "Mangás", label_en: "Mangas", url: "https://bitbeak.com/mangas" },
+      { label_pt: "Mangás", label_en: "Mangas", href: "assets/Bit_Beak_Mangas.pdf", download: true  },
       { label_pt: "Figma", label_en: "Figma", url: "https://www.figma.com/proto/YJ1eG3DorMAs232tWcoe26/BitBeak?node-id=768-65&p=f&t=GUEUXawIudNkuFAy-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" },
       { label_pt: "Post LinkedIn", label_en: "LinkedIn Post", url: "https://www.linkedin.com/posts/marcosviniciussa_h%C3%A1-cerca-de-um-m%C3%AAs-realizei-a-%C3%BAltima-apresenta%C3%A7%C3%A3o-activity-7275892876104880128-HLgd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC-148oBRSguSUWgqHnMYqdzwLz5oxvMhnQ" },
       { label_pt: "Artigo", label_en: "Paper", tooltip_pt: "O artigo do projeto está em fase de revisão", tooltip_en: "The paper is currently under review" }
@@ -322,19 +322,24 @@ document.querySelectorAll("#projetosWrapper > div").forEach(container => {
     projeto.botoes.forEach(botao => {
       const btn = document.createElement("a");
       btn.className = "bg-[#F0A500] text-black px-4 py-2 rounded font-medium text-sm hover:bg-[#F0B433] transition";
-      btn.textContent = botao.label;
       btn.textContent = idiomaAtual === "pt" ? botao.label_pt : botao.label_en;
 
       if (botao.url) {
         btn.href = botao.url;
         btn.target = "_blank";
-      }else if (botao.tooltip_pt || botao.tooltip_en) {
+      } else if (botao.href) {
+        btn.href = botao.href;
+        if (botao.download) {
+          btn.setAttribute("download", "");
+        }
+      } else if (botao.tooltip_pt || botao.tooltip_en) {
         btn.classList.add("cursor-not-allowed", "opacity-60", "relative");
         btn.setAttribute("title", idiomaAtual === "pt" ? botao.tooltip_pt : botao.tooltip_en);
       }
 
       modalBotoes.appendChild(btn);
     });
+
 
     modal.classList.remove("hidden");
   });
