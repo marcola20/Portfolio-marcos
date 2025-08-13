@@ -230,8 +230,6 @@ document.getElementById("nextProjeto").addEventListener("click", () => {
   }
 });
 
-
-
 // script para o modal de projetos
 const modal = document.getElementById("modalProjeto");
 const modalTitulo = document.getElementById("modalTitulo");
